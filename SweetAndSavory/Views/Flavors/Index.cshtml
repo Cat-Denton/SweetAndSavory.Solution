@@ -1,0 +1,26 @@
+@{
+  Layout = "_Layout";
+}
+
+@using SweetAndSavory.Models
+@model IEnumerable<SweetAndSavory.Models.Flavor>
+
+<h1>Flavors Index</h1>
+<br>
+@if (Model.Any())
+{
+  <ul>
+    @foreach (Flavor flavor in Model)
+    {
+      <li>@Html.ActionLink(flavor.Name, "Details", new {id = flavor.FlavorId})</li>
+    }
+  </ul>
+}
+else
+{
+  <h3>You haven't visited flavortown yet!</h3>
+}
+<br>
+<p>@Html.ActionLink("Add new flavor", "Create")</p>
+<br>
+<p>@Html.ActionLink("Home", "Index", "Home")</p>
