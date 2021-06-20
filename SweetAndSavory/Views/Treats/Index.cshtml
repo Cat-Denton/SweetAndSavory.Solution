@@ -1,0 +1,31 @@
+@{
+  Layout = "_Layout";
+}
+
+@using SweetAndSavory.Models
+@model IEnumerable<SweetAndSavory.Models.Treat>
+
+<h1>Treats Index</h1>
+<hr />
+@if (Model.Any())
+{
+  <ul>
+    @foreach (Treat treat in Model)
+    {
+      <li>@Html.ActionLink(treat.Name, "Details", new {id = treat.TreatId}) | Flavors: 
+        @foreach (var join in treat.JoinEntities)
+        {  
+          <span>@join.Flavor.Name </span>
+        }
+      </li>
+    }
+  </ul>
+}
+else
+{
+  <h3>Get in the kitchen and cook some treats!</h3>
+}
+<hr />
+<p>@Html.ActionLink("Add new Treat", "Create")</p>
+
+<p>@Html.ActionLink("Home", "Index", "Home")</p>

@@ -5,18 +5,20 @@
 @using SweetAndSavory.Models
 
 <h1>Welcome to Pierre's Sweet and Savory Treats!</h1>
+<hr />
 @if(ViewBag.Flavors.Count == 0)
 {
     <h3>Pierre has not created any delicious flavors yet</h3>
 }
 else
 {
+   <h2>Browse menu by flavor:</h2> 
     <ul>
         @foreach(Flavor flavor in ViewBag.Flavors)
         {
-            @Html.ActionLink(flavor.Name, "Details", "Flavors", new { id = flavor.FlavorId})
+            <li>@Html.ActionLink(flavor.Name, "Details", "Flavors", new { id = flavor.FlavorId})</li>
         }
-    </ul>
+</ul>
 }
 
 @if(ViewBag.Treats.Count == 0)
@@ -25,15 +27,17 @@ else
 }
 else
 {
+    <h2>Select a treat to see its details:</h2>
     <ul>
         @foreach(Treat treat in ViewBag.Treats)
         {
-            @Html.ActionLink(treat.Name, "Details", "treats", new { id = treat.TreatId})
+            <li>@Html.ActionLink(treat.Name, "Details", "treats", new { id = treat.TreatId})</li>
         }
     </ul>
 }
+<hr />
 
 <p>@Html.ActionLink("See all Treats", "Index", "Treats")</p>
 <p>@Html.ActionLink("See all Flavors", "Index", "Flavors")</p>
-<p>@Html.ActionLink("Login to your account", "Login", "Account")</p>
+<p>@Html.ActionLink("Login or log out from your account", "Index", "Account")</p>
 <p>@Html.ActionLink("Create an account", "Index", "Account")</p>

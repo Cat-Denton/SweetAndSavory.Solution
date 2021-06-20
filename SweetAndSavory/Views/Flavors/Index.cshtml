@@ -6,7 +6,7 @@
 @model IEnumerable<SweetAndSavory.Models.Flavor>
 
 <h1>Flavors Index</h1>
-<br>
+<hr />
 @if (Model.Any())
 {
   <ul>
@@ -20,7 +20,6 @@ else
 {
   <h3>You haven't visited flavortown yet!</h3>
 }
-<br>
+<hr />
 <p>@Html.ActionLink("Add new flavor", "Create")</p>
-<br>
 <p>@Html.ActionLink("Home", "Index", "Home")</p>

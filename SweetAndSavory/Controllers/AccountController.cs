@@ -3,6 +3,7 @@ using Microsoft.AspNetCore.Identity;
 using SweetAndSavory.Models;
 using System.Threading.Tasks;
 using SweetAndSavory.ViewModels;
+using Microsoft.AspNetCore.Authorization;
 
 namespace SweetAndSavory.Controllers
 {
@@ -18,7 +19,7 @@ namespace SweetAndSavory.Controllers
       _signInManager = signInManager;
       _db = db;
     }
-
+    [Authorize]
     public ActionResult Index()
     {
       return View();
@@ -65,7 +66,7 @@ namespace SweetAndSavory.Controllers
     public async Task<ActionResult> LogOff()
     {
       await _signInManager.SignOutAsync();
-      return RedirectToAction("Index");
+      return RedirectToAction("Index", "Home");
     }
   }
 }
