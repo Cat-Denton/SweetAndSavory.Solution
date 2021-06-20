@@ -1,4 +1,4 @@
-# _Hair Salon_
+# _Pierre's Treats Shop_
 
 #### _A database-backed web app that lets a user add treats and flavors to a database and assign flavors to treats from the treats views_
 
