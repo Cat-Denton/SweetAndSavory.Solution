@@ -37,7 +37,6 @@ _This program displays the full list of both treats and flavors on the home page
 }
 ```
 * Type "dotnet build" in terminal and hit enter
-* Type "dotnet ef migrations add Initial"
 * Type "dotnet ef database update"
 * Type "dotnet run" in the terminal and hit enter
 
